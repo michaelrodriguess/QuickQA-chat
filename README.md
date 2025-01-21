@@ -1,4 +1,4 @@
-Live Polls - Enquetes ao Vivo
+QuickQA Chat - Enquetes ao Vivo
 
 QuickQA Chat é uma aplicação simples e iterativa para criar e responder enquetes ao vivo. Desenvolvida com FastAPI e integrada ao Firebase para armazenamento de dados em realtime. O objetivo é práticar aplicações em realtime.
 
