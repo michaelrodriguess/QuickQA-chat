@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickQA Chat</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app" class="container">
+        <header class="header">
+            <h1 class="title">QuickQA Chat</h1>
+        </header>
+
+        <main>
+            <section class="question-box">
+                <h2>Ask a question</h2>
+                <form id="question-form" aria-label="Forms to send a question">
+                    <label for="question-input" class="visually-hidden"></label>
+                    <textarea 
+                        id="question-input" 
+                        placeholder="Enter your question..." 
+                        required 
+                        aria-required="true"
+                    ></textarea>
+                    <button type="submit" class="btn-submit">Send</button>
+                </form>
+            </section>
+
+            <section class="response-box">
+                <h2>Recent Questions</h2>
+                <ul id="questions-list" aria-live="polite" aria-relevant="additions text"></ul>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2025 QuickQA Chat. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    
+    <!-- App Script -->
+    <script src="scripts.js"></script>
+</body>
+</html>

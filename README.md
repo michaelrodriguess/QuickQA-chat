@@ -1,16 +1,35 @@
-QuickQA Chat - Enquetes ao Vivo
+# Quick Q&A Chat
 
-QuickQA Chat é uma aplicação simples e iterativa para criar e responder enquetes ao vivo. Desenvolvida com FastAPI e integrada ao Firebase para armazenamento de dados em realtime. O objetivo é práticar aplicações em realtime.
+**Quick Q&A Chat** is a simple application for creating polls and answering questions in real time, using **Firebase Realtime Database**.
 
-Funcionalidades
+## Technologies Used
 
-Criação de enquetes ao vivo.
-Interface simples.
-Backend em Python com FastAPI.
-Integração com Firebase Realtime Database para armazenamento de perguntas e respostas em realtime.
+- **HTML**
+- **CSS**
+- **JavaScript**
+- **Firebase Realtime Database**
 
-Tecnologias Utilizadas
+## How to Use
 
-Backend: FastAPI
-Banco de Dados: Firebase Realtime Database 
-Frontend: HTML, CSS, e JavaScript
+1. **Clone the repository**  
+   ```bash
+   git clone <REPOSITORY_URL>
+
+2. **Configure the** *script.js* **file**
+
+    Update the Firebase configuration in the script.js file with your project's details. To do this:
+
+    - Create an account on Firebase (https://firebase.google.com).
+    - Set up a new project in Firebase.
+    - Copy the Firebase SDK configuration and paste it into the script.js file.
+
+3. **Access index.html**
+
+    Open the index.html file in your browser to start using **Quick Q&A Chat**.
+
+
+## Notes
+- Make sure to set up Firebase Realtime Database security rules according to your project's requirements.
+- If you encounter any issues, check the official Firebase documentation.
+
+Enjoy using Quick Q&A Chat! 🎉
