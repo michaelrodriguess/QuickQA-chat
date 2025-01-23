@@ -27,6 +27,12 @@
 
     Open the index.html file in your browser to start using **Quick Q&A Chat**.
 
+## Usage Demo
+To see how Quick Q&A Chat works, watch the video below:
+
+[Watch the demo on Loom](https://www.loom.com/share/9367a26062cc489a8e7fcdfe929ddfba?sid=cd6f603b-efd7-445c-bd0b-8e3ae7a6e59e)
+
+
 
 ## Notes
 - Make sure to set up Firebase Realtime Database security rules according to your project's requirements.
