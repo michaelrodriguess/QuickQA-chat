@@ -119,19 +119,41 @@ button:hover {
 .response-button:hover {
     background-color: #219a52;
 }
-
 .edit-button {
     background-color: transparent;
     color: #3498db;
-    border: none;
+    border: 2px solid transparent;
     padding: 4px 8px;
     font-size: 12px;
     cursor: pointer;
     border-radius: 4px;
-    transition: color 0.3s ease;
+    display: inline-block; 
+    
 }
 
 .edit-button:hover {
-    color: #21618c;
+    background-color: blue;
+    color: white;
     text-decoration: underline;
+    border-color: #3498db;
+    align-items: center;
+}
+
+.delete-button {
+    background-color: transparent;
+    color: #e74c3c; 
+    border: 2px solid transparent;
+    padding: 4px 8px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    display: inline-block; 
+}
+
+.delete-button:hover {
+    background-color: red;
+    color: white;
+    text-decoration: underline;
+    border-color: #e74c3c;
+    align-items: center;
 }

@@ -66,7 +66,12 @@ function createQuestionElement(key, question, currentUserId) {
     li.innerHTML = `
         <div class="question-header">
             <p><strong>Question:</strong> ${question.text}</p>
-            ${question.uuid === sessionUUID ? `<button class="edit-button" data-key="${key}">Edit your question</button>` : ''}
+            ${
+                question.uuid === sessionUUID 
+                ? `<button class="edit-button" data-key="${key}">Edit your question</button>
+                   <button class="delete-button" data-key="${key}">Delete your question</button>` 
+                : ''
+            }
         </div>
         <small class="question-time">Asked on: ${formattedDate}</small>
         <div class="responses-container"></div>
@@ -153,6 +158,24 @@ questionsList.addEventListener("click", (event) => {
                 })
                 .catch((error) => {
                     console.error("Error updating question:", error);
+                });
+        }
+    }
+});
+
+questionsList.addEventListener("click", (event) => {    
+    if (event.target.classList.contains("delete-button")) {
+        const questionKey = event.target.getAttribute("data-key");
+        
+        const confirmDelete = confirm("Are you sure you want to delete this question?");
+        if (confirmDelete) {
+            db.ref(`questions/${questionKey}`)
+                .remove()
+                .then(() => {
+                    console.log("Question deleted successfully.");
+                })
+                .catch((error) => {
+                    console.error("Error deleting question:", error);
                 });
         }
     }
