@@ -13,7 +13,7 @@
 
 1. **Clone the repository**  
    ```bash
-   git clone <REPOSITORY_URL>
+   git clone git@github.com:michaelrodriguess/QuickQA-chat.git
 
 2. **Configure the** *script.js* **file**
 
