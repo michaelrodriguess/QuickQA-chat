@@ -16,6 +16,12 @@ const questionsList = document.getElementById("questions-list");
 const questionForm = document.getElementById("question-form");
 const questionInput = document.getElementById("question-input");
 
+let sessionUUID = localStorage.getItem("sessionUUID");
+if (!sessionUUID) {
+    sessionUUID = crypto.randomUUID();
+    localStorage.setItem("sessionUUID", sessionUUID);
+}
+
 questionForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -25,7 +31,8 @@ questionForm.addEventListener("submit", (event) => {
         questionRef.set({
             text: questionText,
             responses: {},
-            timestamp: Date.now()
+            timestamp: Date.now(),
+            uuid: sessionUUID
         }).then(() => {
             questionInput.value = "";
         }).catch((error) => {
@@ -49,16 +56,19 @@ function createResponseElement(response, timestamp) {
     return responseDiv;
 }
 
-function createQuestionElement(key, question) {
+function createQuestionElement(key, question, currentUserId) {
     const li = document.createElement("li");
     li.classList.add("question-item");
     
     const date = new Date(question.timestamp);
     const formattedDate = date.toLocaleString();
-    
+
     li.innerHTML = `
-        <p><strong>Question:</strong> ${question.text}</p>
-        <small class="question-time">Asked on : ${formattedDate}</small>
+        <div class="question-header">
+            <p><strong>Question:</strong> ${question.text}</p>
+            ${question.uuid === sessionUUID ? `<button class="edit-button" data-key="${key}">Edit your question</button>` : ''}
+        </div>
+        <small class="question-time">Asked on: ${formattedDate}</small>
         <div class="responses-container"></div>
         <div class="response-form">
             <textarea class="response-input" placeholder="Enter your answer..." data-key="${key}"></textarea>
@@ -124,6 +134,26 @@ questionsList.addEventListener("click", (event) => {
             }).catch((error) => {
                 console.error("Error saving answer:", error);
             });
+        }
+    }
+});
+
+questionsList.addEventListener("click", (event) => {
+    if (event.target.classList.contains("edit-button")) {
+        const questionKey = event.target.getAttribute("data-key");
+        const questionElement = event.target.closest(".question-item");
+        const questionText = questionElement.querySelector("p strong").nextSibling.textContent.trim();
+
+        const newQuestionText = prompt("Edit your question:", questionText);
+        if (newQuestionText && newQuestionText !== questionText) {
+            db.ref(`questions/${questionKey}`)
+                .update({ text: newQuestionText })
+                .then(() => {
+                    console.log("Question updated successfully.");
+                })
+                .catch((error) => {
+                    console.error("Error updating question:", error);
+                });
         }
     }
 });

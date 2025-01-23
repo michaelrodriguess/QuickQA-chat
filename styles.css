@@ -119,3 +119,19 @@ button:hover {
 .response-button:hover {
     background-color: #219a52;
 }
+
+.edit-button {
+    background-color: transparent;
+    color: #3498db;
+    border: none;
+    padding: 4px 8px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: color 0.3s ease;
+}
+
+.edit-button:hover {
+    color: #21618c;
+    text-decoration: underline;
+}
